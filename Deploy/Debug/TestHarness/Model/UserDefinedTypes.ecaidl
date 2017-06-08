@@ -1,0 +1,28 @@
+category LVCData
+Inputs {
+    FloatingPoint Double VoltsVTx4
+    FloatingPoint Double VoltsVTx5
+    FloatingPoint Double LocKvVCap1
+    FloatingPoint Double LocKvVCap2
+    FloatingPoint Double MwVTx4
+    FloatingPoint Double MvrVTx4
+    FloatingPoint Double MwVTx5
+    FloatingPoint Double MvrVTx5
+    FloatingPoint Double G1Mw
+    FloatingPoint Double G1Mvr
+    FloatingPoint Double G2Mw
+    FloatingPoint Double G2Mvr
+}
+
+category LVCData
+Outputs {
+    Integer Int16 OperationMode
+    FloatingPoint Double LoadIncrementPercentage
+    Integer Int16 TapVTx4
+    Integer Int16 TapVTx5
+    Integer Int16 CapBkrVCap1
+    Integer Int16 CapBkrVCap2
+    Integer Int16 BusBkrVCap1
+    Integer Int16 BusBkrVCap2
+}
+

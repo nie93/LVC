@@ -44,7 +44,18 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapters\VoltVarControllerAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VcControlDevice\VcCapacitorBank.cs" />
+    <Compile Include="VcControlDevice\VcLtcStatus.cs" />
+    <Compile Include="VcControlDevice\VcSubstationAlarmDevice.cs" />
+    <Compile Include="VcControlDevice\VcSubstationInfomation.cs" />
+    <Compile Include="VcControlDevice\VcTransformer.cs" />
+    <Compile Include="VcControlDevice\VoltVarController.cs" />
+    <Compile Include="VcMessages\BellyUps.cs" />
+    <Compile Include="VcMessages\ProgLogMessages.cs" />
+    <Compile Include="VcSubRoutines\ReadCurrentControl.cs" />
+    <Compile Include="VcSubRoutines\SubRoutine.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="LVCLibrary.ico" />
@@ -101,4 +112,5 @@
       <HintPath>..\Dependencies\openECA\ECACommonUtilities.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup />
 </Project>

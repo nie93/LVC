@@ -7,6 +7,7 @@
 Zhijie Nie, 2017-06-20
 
 ## Program Development
+* (C#) Re-configure a `PreviousFrame`
 * (C#) Construct a `EcaConnector` class
 * [**HOLD**] (C#) Use `GrafanaAdapters.cs` to create data connection to DashBoard
 * (C#) Refine `SysConfigFrame(object)` class

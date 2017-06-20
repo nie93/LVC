@@ -73,73 +73,7 @@ namespace LVC
 
             string LogFilePath = Path.Combine(LogFolderPath, LogFileName);
 
-            bool EnableVoltageControlsMessageOutput = false;
-            #endregion
-
-            #region [ Subscribe MetaData from openECA ]
-            StringBuilder _subscriberMessage = new StringBuilder();
-        
-            DataSubscriber dataSubscriber = new DataSubscriber()
-            {
-                ConnectionString = SystemSettings.ConnectionString
-            };
-
-
-            // Attach to ConnectionEstablished and MetadataReceived events
-            // so we can do our work once we are connected to the ECA server
-            dataSubscriber.ConnectionEstablished += (sender, arg) =>
-            {
-                // Create meta signal that represents our output measurement
-                MetaSignal metaSignal = new MetaSignal()
-                {
-                    AnalyticProjectName = "TestProject",
-                    AnalyticInstanceName = "TestInstance",
-                    SignalType = "VPHM",
-                    PointTag = "LVC_TEST:VPHM",
-                    Description = "Test for Local Voltage Controller"
-                };
-
-                // Send meta signal to server to ask it to create our output measurement
-                string message = new ConnectionStringParser<SettingAttribute>().ComposeConnectionString(metaSignal);
-                dataSubscriber.SendServerCommand((ServerCommand)ECAServerCommand.MetaSignal, message);
-
-                // Ask for metadata from server so we can find our new output measurement
-                dataSubscriber.SendServerCommand(ServerCommand.MetaDataRefresh);
-            };
-
-            dataSubscriber.MetaDataReceived += (sender, arg) =>
-            {
-                DataSet metadata = arg.Argument;
-
-                // Subscribe to all frequency meausurements that were taken on June 3
-                dataSubscriber.Subscribe(new UnsynchronizedSubscriptionInfo(false)
-                {
-                    FilterExpression = "FILTER ActiveMeasurements WHERE (ID='PPA:9' OR ID='PPA:10' OR ID='PPA:11' OR ID='PPA:12') AND SignalType='VPHM' ORDER BY ID",
-                    ProcessingInterval = 0
-                });
-            };
-            
-            dataSubscriber.NewMeasurements += (sender, arg) =>
-            {
-                ICollection<IMeasurement> measurements = arg.Argument;
-                // Process measurements here
-                List<IMeasurement> measurementList = measurements.ToList();     // Convert Measurement Collection to List
-                _subscriberMessage.AppendLine($"# of measurement: {measurements.Count}");
-                _subscriberMessage.AppendLine($"       Timestamp: {measurementList[0].Timestamp:yyyy-MM-dd HH:mm:ss:fff}");
-
-                foreach (IMeasurement meas in measurementList)
-                {
-                    _subscriberMessage.AppendLine($"             Key: {meas.Key} \t| Value: {meas.Value:0.0000}");
-                }
-
-
-                MainWindow.WriteMessage(_subscriberMessage.ToString());
-            };
-
-            // Initialize and start the subscriber so we can
-            // create an output measurement and request metadata
-            dataSubscriber.Initialize();
-            dataSubscriber.Start();
+            bool EnableVoltageControlsMessageOutput = true;
             #endregion
 
             // Extract inputData from openECA then Call SubRoutine

@@ -204,7 +204,6 @@ namespace LVC.Adapters
 
         #endregion
 
-
         #region [ Xml Serialization/Deserialization methods ]
         public void SerializeToXml(string pathName)
         {

@@ -110,7 +110,6 @@ namespace LVC.Adapters
             VoltVarController Frame = new VoltVarController();
 
             #region [ Subscribe MetaData from openECA using ECA's API ]
-            StringBuilder _subscriberMessage = new StringBuilder();
 
             DataSubscriber dataSubscriber = new DataSubscriber()
             {
@@ -118,8 +117,7 @@ namespace LVC.Adapters
             };
 
 
-            // Attach to ConnectionEstablished and MetadataReceived events
-            // so we can do our work once we are connected to the ECA server
+            // Attach to ConnectionEstablished and MetadataReceived events so we can do our work once we are connected to the ECA server
             dataSubscriber.ConnectionEstablished += (sender, arg) =>
             {
                 // Create meta signal that represents our output measurement
@@ -147,7 +145,8 @@ namespace LVC.Adapters
                 // Subscribe to all frequency meausurements that were taken on June 3
                 dataSubscriber.Subscribe(new UnsynchronizedSubscriptionInfo(false)
                 {
-                    FilterExpression = "FILTER ActiveMeasurements WHERE PointTag LIKE 'SS_VIR:%' AND ( SignalType='VPHM' OR SignalType='CALC' ) ORDER BY ID",
+                    FilterExpression = "FILTER ActiveMeasurements WHERE ID IN ('PPA:3','PPA:4','PPA:5','PPA:6','PPA:7','PPA:8','PPA:9','PPA:10','PPA:11','PPA:12','PPA:13','PPA:14','PPA:15','PPA:16','PPA:17','PPA:18','PPA:19','PPA:20') ORDER BY ID",
+                    //FilterExpression = "FILTER ActiveMeasurements WHERE PointTag LIKE 'SS_VIR:%' AND SignalType IN ('VPHM','CALC') ORDER BY ID",
                     ProcessingInterval = 0
                 });
             };
@@ -157,6 +156,29 @@ namespace LVC.Adapters
                 ICollection<IMeasurement> measurements = arg.Argument;
                 // Process measurements here
                 List<IMeasurement> measurementList = measurements.ToList();     // Convert Measurement Collection to List
+
+                #region [ Extract Inputs from openECA ]
+                m_inputFrame.ControlTransformers[0].TapV = (Int16)measurementList[0].Value;
+                m_inputFrame.ControlTransformers[1].TapV = (Int16)measurementList[1].Value;
+                m_inputFrame.ControlCapacitorBanks[0].CapBkrV = (Int16)measurementList[2].Value;
+                m_inputFrame.ControlCapacitorBanks[1].CapBkrV = (Int16)measurementList[3].Value;
+                m_inputFrame.ControlCapacitorBanks[0].BusBkrV = (Int16)measurementList[4].Value;
+                m_inputFrame.ControlCapacitorBanks[1].BusBkrV = (Int16)measurementList[5].Value;
+                m_inputFrame.ControlTransformers[0].VoltsV = measurementList[6].Value;
+                m_inputFrame.ControlTransformers[1].VoltsV = measurementList[7].Value;
+                m_inputFrame.ControlCapacitorBanks[0].LockvV = measurementList[8].Value;
+                m_inputFrame.ControlCapacitorBanks[1].LockvV = measurementList[9].Value;
+                m_inputFrame.ControlTransformers[0].MwV = measurementList[10].Value;
+                m_inputFrame.ControlTransformers[0].MvrV = measurementList[11].Value;
+                m_inputFrame.ControlTransformers[1].MwV = measurementList[12].Value;
+                m_inputFrame.ControlTransformers[1].MvrV = measurementList[13].Value;
+                m_inputFrame.SubstationInformation.G1Mw = measurementList[14].Value;
+                m_inputFrame.SubstationInformation.G1Mvr = measurementList[15].Value;
+                m_inputFrame.SubstationInformation.G2Mw = measurementList[16].Value;
+                m_inputFrame.SubstationInformation.G2Mvr = measurementList[17].Value;
+                #endregion
+
+                StringBuilder _subscriberMessage = new StringBuilder();
                 _subscriberMessage.AppendLine($"# of measurement: {measurements.Count}");
                 _subscriberMessage.AppendLine($"       Timestamp: {measurementList[0].Timestamp:yyyy-MM-dd HH:mm:ss:fff}");
 
@@ -164,45 +186,16 @@ namespace LVC.Adapters
                 {
                     _subscriberMessage.AppendLine($"             Key: {meas.Key} \t| Value: {meas.Value:0.0000}");
                 }
-
-                #region [ Extract Inputs from openECA ]
-                m_inputFrame.ControlTransformers[0].VoltsV = measurementList[0].Value;
-                m_inputFrame.ControlTransformers[1].VoltsV = measurementList[1].Value;
-                m_inputFrame.ControlCapacitorBanks[0].LockvV = measurementList[2].Value;
-                m_inputFrame.ControlCapacitorBanks[1].LockvV = measurementList[3].Value;
-                m_inputFrame.ControlTransformers[0].MwV = measurementList[4].Value;
-                m_inputFrame.ControlTransformers[0].MvrV = measurementList[5].Value;
-                m_inputFrame.ControlTransformers[1].MwV = measurementList[6].Value;
-                m_inputFrame.ControlTransformers[1].MvrV = measurementList[7].Value;
-                m_inputFrame.SubstationInformation.G1Mw = measurementList[8].Value;
-                m_inputFrame.SubstationInformation.G1Mvr = measurementList[9].Value;
-                m_inputFrame.SubstationInformation.G2Mw = measurementList[10].Value;
-                m_inputFrame.SubstationInformation.G2Mvr = measurementList[11].Value;
-                #endregion
-
+        
                 //MainWindow.WriteMessage(_subscriberMessage.ToString());
             };
 
-            // Initialize and start the subscriber so we can
-            // create an output measurement and request metadata
+            // Initialize and start the subscriber so we can create an output measurement and request metadata
             dataSubscriber.Initialize();
             dataSubscriber.Start();
+
             #endregion
 
-            #region [ Extract Inputs from openECA ]
-            //m_inputFrame.ControlTransformers[0].VoltsV = inputsData.VoltsVTx4;
-            //m_inputFrame.ControlTransformers[1].VoltsV = inputsData.VoltsVTx5;
-            //m_inputFrame.ControlCapacitorBanks[0].LockvV = inputsData.LocKvVCap1;
-            //m_inputFrame.ControlCapacitorBanks[1].LockvV = inputsData.LocKvVCap2;
-            //m_inputFrame.ControlTransformers[0].MwV = inputsData.MwVTx4;
-            //m_inputFrame.ControlTransformers[0].MvrV = inputsData.MvrVTx4;
-            //m_inputFrame.ControlTransformers[1].MwV = inputsData.MwVTx5;
-            //m_inputFrame.ControlTransformers[1].MvrV = inputsData.MvrVTx5;
-            //m_inputFrame.SubstationInformation.G1Mw = inputsData.G1Mw;
-            //m_inputFrame.SubstationInformation.G1Mvr = inputsData.G1Mvr;
-            //m_inputFrame.SubstationInformation.G2Mw = inputsData.G2Mw;
-            //m_inputFrame.SubstationInformation.G2Mvr = inputsData.G2Mvr;
-            #endregion
 
             #region [ Measurements Mapping ]
 
@@ -285,8 +278,7 @@ namespace LVC.Adapters
 
             #endregion
 
-        }
-        
+        }      
 
         #endregion
 

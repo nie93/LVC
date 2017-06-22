@@ -1,0 +1,21 @@
+category LVCData
+Inputs {
+    FloatingPoint Double VoltsVTx4
+    FloatingPoint Double VoltsVTx5
+    FloatingPoint Double LocKvVCap1
+    FloatingPoint Double LocKvVCap2
+    FloatingPoint Double MwVTx4
+    FloatingPoint Double MvrVTx4
+    FloatingPoint Double MwVTx5
+    FloatingPoint Double MvrVTx5
+    FloatingPoint Double G1Mw
+    FloatingPoint Double G1Mvr
+    FloatingPoint Double G2Mw
+    FloatingPoint Double G2Mvr
+}
+
+category LVCData
+Outputs {
+    Integer Int16 IntOutput
+}
+

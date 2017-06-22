@@ -16,13 +16,6 @@ Inputs {
 
 category LVCData
 Outputs {
-    Integer Int16 OperationMode
-    FloatingPoint Double LoadIncrementPercentage
-    Integer Int16 TapVTx4
-    Integer Int16 TapVTx5
-    Integer Int16 CapBkrVCap1
-    Integer Int16 CapBkrVCap2
-    Integer Int16 BusBkrVCap1
-    Integer Int16 BusBkrVCap2
+    Integer Int16 IntOutput
 }
 

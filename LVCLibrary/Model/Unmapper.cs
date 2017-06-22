@@ -68,48 +68,6 @@ namespace LVC.Model
                 BurnKeyIndex();
             }
 
-            {
-                // We don't need to do anything, but we burn a key index to keep our
-                // array index in sync with where we are in the data structure
-                BurnKeyIndex();
-            }
-
-            {
-                // We don't need to do anything, but we burn a key index to keep our
-                // array index in sync with where we are in the data structure
-                BurnKeyIndex();
-            }
-
-            {
-                // We don't need to do anything, but we burn a key index to keep our
-                // array index in sync with where we are in the data structure
-                BurnKeyIndex();
-            }
-
-            {
-                // We don't need to do anything, but we burn a key index to keep our
-                // array index in sync with where we are in the data structure
-                BurnKeyIndex();
-            }
-
-            {
-                // We don't need to do anything, but we burn a key index to keep our
-                // array index in sync with where we are in the data structure
-                BurnKeyIndex();
-            }
-
-            {
-                // We don't need to do anything, but we burn a key index to keep our
-                // array index in sync with where we are in the data structure
-                BurnKeyIndex();
-            }
-
-            {
-                // We don't need to do anything, but we burn a key index to keep our
-                // array index in sync with where we are in the data structure
-                BurnKeyIndex();
-            }
-
             return obj;
         }
 
@@ -119,51 +77,9 @@ namespace LVC.Model
             LVC.Model.LVCData._OutputsMeta obj = new LVC.Model.LVCData._OutputsMeta();
 
             {
-                // Initialize meta value structure to "OperationMode" field
-                FieldMapping fieldMapping = fieldLookup["OperationMode"];
-                obj.OperationMode = CreateMetaValues(fieldMapping);
-            }
-
-            {
-                // Initialize meta value structure to "LoadIncrementPercentage" field
-                FieldMapping fieldMapping = fieldLookup["LoadIncrementPercentage"];
-                obj.LoadIncrementPercentage = CreateMetaValues(fieldMapping);
-            }
-
-            {
-                // Initialize meta value structure to "TapVTx4" field
-                FieldMapping fieldMapping = fieldLookup["TapVTx4"];
-                obj.TapVTx4 = CreateMetaValues(fieldMapping);
-            }
-
-            {
-                // Initialize meta value structure to "TapVTx5" field
-                FieldMapping fieldMapping = fieldLookup["TapVTx5"];
-                obj.TapVTx5 = CreateMetaValues(fieldMapping);
-            }
-
-            {
-                // Initialize meta value structure to "CapBkrVCap1" field
-                FieldMapping fieldMapping = fieldLookup["CapBkrVCap1"];
-                obj.CapBkrVCap1 = CreateMetaValues(fieldMapping);
-            }
-
-            {
-                // Initialize meta value structure to "CapBkrVCap2" field
-                FieldMapping fieldMapping = fieldLookup["CapBkrVCap2"];
-                obj.CapBkrVCap2 = CreateMetaValues(fieldMapping);
-            }
-
-            {
-                // Initialize meta value structure to "BusBkrVCap1" field
-                FieldMapping fieldMapping = fieldLookup["BusBkrVCap1"];
-                obj.BusBkrVCap1 = CreateMetaValues(fieldMapping);
-            }
-
-            {
-                // Initialize meta value structure to "BusBkrVCap2" field
-                FieldMapping fieldMapping = fieldLookup["BusBkrVCap2"];
-                obj.BusBkrVCap2 = CreateMetaValues(fieldMapping);
+                // Initialize meta value structure to "IntOutput" field
+                FieldMapping fieldMapping = fieldLookup["IntOutput"];
+                obj.IntOutput = CreateMetaValues(fieldMapping);
             }
 
             return obj;
@@ -174,58 +90,9 @@ namespace LVC.Model
             Dictionary<string, FieldMapping> fieldLookup = typeMapping.FieldMappings.ToDictionary(mapping => mapping.Field.Identifier);
 
             {
-                // Convert value from "OperationMode" field to measurement
-                FieldMapping fieldMapping = fieldLookup["OperationMode"];
-                IMeasurement measurement = MakeMeasurement(meta.OperationMode, (double)data.OperationMode);
-                measurements.Add(measurement);
-            }
-
-            {
-                // Convert value from "LoadIncrementPercentage" field to measurement
-                FieldMapping fieldMapping = fieldLookup["LoadIncrementPercentage"];
-                IMeasurement measurement = MakeMeasurement(meta.LoadIncrementPercentage, (double)data.LoadIncrementPercentage);
-                measurements.Add(measurement);
-            }
-
-            {
-                // Convert value from "TapVTx4" field to measurement
-                FieldMapping fieldMapping = fieldLookup["TapVTx4"];
-                IMeasurement measurement = MakeMeasurement(meta.TapVTx4, (double)data.TapVTx4);
-                measurements.Add(measurement);
-            }
-
-            {
-                // Convert value from "TapVTx5" field to measurement
-                FieldMapping fieldMapping = fieldLookup["TapVTx5"];
-                IMeasurement measurement = MakeMeasurement(meta.TapVTx5, (double)data.TapVTx5);
-                measurements.Add(measurement);
-            }
-
-            {
-                // Convert value from "CapBkrVCap1" field to measurement
-                FieldMapping fieldMapping = fieldLookup["CapBkrVCap1"];
-                IMeasurement measurement = MakeMeasurement(meta.CapBkrVCap1, (double)data.CapBkrVCap1);
-                measurements.Add(measurement);
-            }
-
-            {
-                // Convert value from "CapBkrVCap2" field to measurement
-                FieldMapping fieldMapping = fieldLookup["CapBkrVCap2"];
-                IMeasurement measurement = MakeMeasurement(meta.CapBkrVCap2, (double)data.CapBkrVCap2);
-                measurements.Add(measurement);
-            }
-
-            {
-                // Convert value from "BusBkrVCap1" field to measurement
-                FieldMapping fieldMapping = fieldLookup["BusBkrVCap1"];
-                IMeasurement measurement = MakeMeasurement(meta.BusBkrVCap1, (double)data.BusBkrVCap1);
-                measurements.Add(measurement);
-            }
-
-            {
-                // Convert value from "BusBkrVCap2" field to measurement
-                FieldMapping fieldMapping = fieldLookup["BusBkrVCap2"];
-                IMeasurement measurement = MakeMeasurement(meta.BusBkrVCap2, (double)data.BusBkrVCap2);
+                // Convert value from "IntOutput" field to measurement
+                FieldMapping fieldMapping = fieldLookup["IntOutput"];
+                IMeasurement measurement = MakeMeasurement(meta.IntOutput, (double)data.IntOutput);
                 measurements.Add(measurement);
             }
         }

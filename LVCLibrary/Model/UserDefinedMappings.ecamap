@@ -1,4 +1,4 @@
-LVCData Inputs InputMapping {
+LVCData Inputs LVCData_InputMapping {
     VoltsVTx4: PPA:21 
     VoltsVTx5: PPA:22 
     LocKvVCap1: PPA:23 
@@ -13,14 +13,7 @@ LVCData Inputs InputMapping {
     G2Mvr: PPA:32 
 }
 
-LVCData Outputs OutputMapping {
-    OperationMode: PPA:33 
-    LoadIncrementPercentage: PPA:34 
-    TapVTx4: PPA:35 
-    TapVTx5: PPA:36 
-    CapBkrVCap1: PPA:37 
-    CapBkrVCap2: PPA:38 
-    BusBkrVCap1: PPA:39 
-    BusBkrVCap2: PPA:40 
+LVCData Outputs LVCData_OutputMapping {
+    IntOutput: PPA:33 
 }
 

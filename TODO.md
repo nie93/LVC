@@ -3,10 +3,13 @@
 * (O_o):  They closed my IT request ticket...
 * (=. =): Still waiting for IT guys to fix the filesystem...
 * (#_#):  Get up late... Good job, my curtain!
+* (-O-)~: Yawning...
 
-Zhijie Nie, 2017-06-20
+Zhijie Nie, 2017-06-22
 
 ## Program Development
+* (C#) Need to modify `RunPythonCmd()` under `PythonScript` class, given `OperationMode` is 
+obselete now since `SysConfigFrame` class is removed.
 * (C#) Re-configure a `PreviousFrame`
 * (C#) Construct a `EcaConnector` class
 * [**HOLD**] (C#) Use `GrafanaAdapters.cs` to create data connection to DashBoard
@@ -60,8 +63,8 @@ Zhijie Nie, 2017-06-20
 |UpdatedOn	        |DateTime   |           |
 
 
-* TestHarness is just a tool for "developing" an analytic - the actual end product will be an 
-*installable Windows service*.
+* TestHarness is just a tool for developing an analytic - the actual end product will be an 
+**installable Windows service**.
 
 
 ### Reserved URLs for GPA
@@ -85,7 +88,8 @@ Zhijie Nie, 2017-06-20
 
 * (openECA) Overwrite `Server/*.csv` AddNewLine real-time test (See if openECA) 
 
-Results: Even though `Server/*.csv` file updated (admin access required), the CsvAdapter has to be initialized in openECA Manager
+Results: Even though `Server/*.csv` file updated (admin access required), the CsvAdapter has to be 
+initialized in openECA Manager
 
 
 ## ePHASORsim Contingencies
@@ -106,12 +110,14 @@ everytime when run the program)
 * (C#) Create new repository for ***LVCinShadowSys***
 * (C#) Try to another project to ***LVCinShadowSys.sln***
 * [**Failed**] (C#) Connect LVC's inputs with ShadowSys' outputs by mapping files
-* [**Failed**] (SIEGate) Create a loop to get openECA re-subscribed (Able to subscribe to direct device only, see connection diagram)
+* [**Failed**] (SIEGate) Create a loop to get openECA re-subscribed (Able to subscribe to direct 
+device only, see connection diagram)
 * (C#) ECAApiDemo
 * (C#) Call LVCTestHarness from LVCinShadowSysTestHarness
 * (C#) Ritchie's reply: 
 
-There should an `App.config` file for the Service and ServiceConsole projects, these will need to reference a unique port. Look in the `ServiceHost.Designer.cs` file for this line:
+There should an `App.config` file for the Service and ServiceConsole projects, these will need to 
+reference a unique port. Look in the `ServiceHost.Designer.cs` file for this line:
 
 
 ```C#
@@ -128,5 +134,6 @@ These port numbers need to be unique per service instance
 So `LVCService` port number should be different from `LVCinShadowSysService`
 
 * (C#) Feeding data of `PPA:9` to `PPA:12` using `DataSubcriber`
+
 <!--
 [![](files/openH2_icon.png)![openHistorian](files/openHistorian2_Logo2016.png)](https://github.com/GridProtectionAlliance/openHistorian "openHistorian")-->

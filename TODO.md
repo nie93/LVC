@@ -5,10 +5,10 @@
 * (#_#):  Get up late... Good job, my curtain!
 * (-O-)~: Yawning...
 
-Zhijie Nie, 2017-06-22
+Zhijie Nie, 2017-06-26
 
 ## Program Development
-* (C#) Need to modify `RunPythonCmd()` under `PythonScript` class, given `OperationMode` is 
+* (C#) Need to remodify `RunPythonCmd()` under `PythonScript` class, given `OperationMode` is 
 obselete now since `SysConfigFrame` class is removed.
 * (C#) Re-configure a `PreviousFrame`
 * (C#) Construct a `EcaConnector` class
@@ -21,14 +21,13 @@ obselete now since `SysConfigFrame` class is removed.
 
 ## Documentation
 * Documentation for ShadowSys
-* Documentation for LVCinShadowSys
 
 
 ## Coding Improvements
 * Learn the usage of ***rawkeyValuePair*** and ***Dictionary*** (C#)
 * Learn how to debug between C# and Python using Visual Studio
 * Learn Python class object
-* Learn Python coding style
+* Learn Python coding style (pylint)
 
 
 ## Need to Knows

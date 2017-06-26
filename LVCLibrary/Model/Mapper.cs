@@ -56,6 +56,48 @@ namespace LVC.Model
             LVC.Model.LVCData.Inputs obj = new LVC.Model.LVCData.Inputs();
 
             {
+                // Assign short value to "TapVTx4" field
+                FieldMapping fieldMapping = fieldLookup["TapVTx4"];
+                IMeasurement measurement = GetMeasurement(fieldMapping);
+                obj.TapVTx4 = (short)measurement.Value;
+            }
+
+            {
+                // Assign short value to "TapVTx5" field
+                FieldMapping fieldMapping = fieldLookup["TapVTx5"];
+                IMeasurement measurement = GetMeasurement(fieldMapping);
+                obj.TapVTx5 = (short)measurement.Value;
+            }
+
+            {
+                // Assign short value to "CapBkrVCap1" field
+                FieldMapping fieldMapping = fieldLookup["CapBkrVCap1"];
+                IMeasurement measurement = GetMeasurement(fieldMapping);
+                obj.CapBkrVCap1 = (short)measurement.Value;
+            }
+
+            {
+                // Assign short value to "CapBkrVCap2" field
+                FieldMapping fieldMapping = fieldLookup["CapBkrVCap2"];
+                IMeasurement measurement = GetMeasurement(fieldMapping);
+                obj.CapBkrVCap2 = (short)measurement.Value;
+            }
+
+            {
+                // Assign short value to "BusBkrVCap1" field
+                FieldMapping fieldMapping = fieldLookup["BusBkrVCap1"];
+                IMeasurement measurement = GetMeasurement(fieldMapping);
+                obj.BusBkrVCap1 = (short)measurement.Value;
+            }
+
+            {
+                // Assign short value to "BusBkrVCap2" field
+                FieldMapping fieldMapping = fieldLookup["BusBkrVCap2"];
+                IMeasurement measurement = GetMeasurement(fieldMapping);
+                obj.BusBkrVCap2 = (short)measurement.Value;
+            }
+
+            {
                 // Assign double value to "VoltsVTx4" field
                 FieldMapping fieldMapping = fieldLookup["VoltsVTx4"];
                 IMeasurement measurement = GetMeasurement(fieldMapping);
@@ -146,6 +188,48 @@ namespace LVC.Model
         {
             Dictionary<string, FieldMapping> fieldLookup = typeMapping.FieldMappings.ToDictionary(mapping => mapping.Field.Identifier);
             LVC.Model.LVCData._InputsMeta obj = new LVC.Model.LVCData._InputsMeta();
+
+            {
+                // Assign MetaValues value to "TapVTx4" field
+                FieldMapping fieldMapping = fieldLookup["TapVTx4"];
+                IMeasurement measurement = GetMeasurement(fieldMapping);
+                obj.TapVTx4 = GetMetaValues(measurement);
+            }
+
+            {
+                // Assign MetaValues value to "TapVTx5" field
+                FieldMapping fieldMapping = fieldLookup["TapVTx5"];
+                IMeasurement measurement = GetMeasurement(fieldMapping);
+                obj.TapVTx5 = GetMetaValues(measurement);
+            }
+
+            {
+                // Assign MetaValues value to "CapBkrVCap1" field
+                FieldMapping fieldMapping = fieldLookup["CapBkrVCap1"];
+                IMeasurement measurement = GetMeasurement(fieldMapping);
+                obj.CapBkrVCap1 = GetMetaValues(measurement);
+            }
+
+            {
+                // Assign MetaValues value to "CapBkrVCap2" field
+                FieldMapping fieldMapping = fieldLookup["CapBkrVCap2"];
+                IMeasurement measurement = GetMeasurement(fieldMapping);
+                obj.CapBkrVCap2 = GetMetaValues(measurement);
+            }
+
+            {
+                // Assign MetaValues value to "BusBkrVCap1" field
+                FieldMapping fieldMapping = fieldLookup["BusBkrVCap1"];
+                IMeasurement measurement = GetMeasurement(fieldMapping);
+                obj.BusBkrVCap1 = GetMetaValues(measurement);
+            }
+
+            {
+                // Assign MetaValues value to "BusBkrVCap2" field
+                FieldMapping fieldMapping = fieldLookup["BusBkrVCap2"];
+                IMeasurement measurement = GetMeasurement(fieldMapping);
+                obj.BusBkrVCap2 = GetMetaValues(measurement);
+            }
 
             {
                 // Assign MetaValues value to "VoltsVTx4" field

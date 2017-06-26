@@ -9,6 +9,12 @@ namespace LVC.Model.LVCData
     [CompilerGenerated]
     public partial class Inputs
     {
+        public short TapVTx4 { get; set; }
+        public short TapVTx5 { get; set; }
+        public short CapBkrVCap1 { get; set; }
+        public short CapBkrVCap2 { get; set; }
+        public short BusBkrVCap1 { get; set; }
+        public short BusBkrVCap2 { get; set; }
         public double VoltsVTx4 { get; set; }
         public double VoltsVTx5 { get; set; }
         public double LocKvVCap1 { get; set; }

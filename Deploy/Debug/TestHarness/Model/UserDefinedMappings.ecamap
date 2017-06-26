@@ -1,16 +1,22 @@
 LVCData Inputs LVCData_InputMapping {
-    VoltsVTx4: PPA:21 
-    VoltsVTx5: PPA:22 
-    LocKvVCap1: PPA:23 
-    LocKvVCap2: PPA:24 
-    MwVTx4: PPA:25 
-    MvrVTx4: PPA:26 
-    MwVTx5: PPA:27 
-    MvrVTx5: PPA:28 
-    G1Mw: PPA:29 
-    G1Mvr: PPA:30 
-    G2Mw: PPA:31 
-    G2Mvr: PPA:32 
+    TapVTx4: PPA:3 
+    TapVTx5: PPA:4 
+    CapBkrVCap1: PPA:5 
+    CapBkrVCap2: PPA:6 
+    BusBkrVCap1: PPA:7 
+    BusBkrVCap2: PPA:8 
+    VoltsVTx4: PPA:9 
+    VoltsVTx5: PPA:10 
+    LocKvVCap1: PPA:11 
+    LocKvVCap2: PPA:12 
+    MwVTx4: PPA:13 
+    MvrVTx4: PPA:14 
+    MwVTx5: PPA:15 
+    MvrVTx5: PPA:16 
+    G1Mw: PPA:17 
+    G1Mvr: PPA:18 
+    G2Mw: PPA:19 
+    G2Mvr: PPA:20 
 }
 
 LVCData Outputs LVCData_OutputMapping {

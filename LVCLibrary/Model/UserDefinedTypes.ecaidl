@@ -1,5 +1,11 @@
 category LVCData
 Inputs {
+    Integer Int16 TapVTx4
+    Integer Int16 TapVTx5
+    Integer Int16 CapBkrVCap1
+    Integer Int16 CapBkrVCap2
+    Integer Int16 BusBkrVCap1
+    Integer Int16 BusBkrVCap2
     FloatingPoint Double VoltsVTx4
     FloatingPoint Double VoltsVTx5
     FloatingPoint Double LocKvVCap1

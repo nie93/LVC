@@ -107,11 +107,35 @@ namespace LVC.Adapters
         {
             SubRoutine sub = new SubRoutine();
             ReadCurrentControl currCtrl = new ReadCurrentControl();
-            VoltVarController Frame = new VoltVarController();            
+            VoltVarController Frame = new VoltVarController();
+
 
             #region [ Measurements Mapping ]
 
             m_inputFrame.OnNewMeasurements();
+
+            #endregion
+
+            #region [ openECA inputData Extraction ]
+
+            m_inputFrame.ControlTransformers[0].TapV = inputsData.TapVTx4;
+            m_inputFrame.ControlTransformers[1].TapV = inputsData.TapVTx5;
+            m_inputFrame.ControlCapacitorBanks[0].CapBkrV = inputsData.CapBkrVCap1;
+            m_inputFrame.ControlCapacitorBanks[1].CapBkrV = inputsData.CapBkrVCap2;
+            m_inputFrame.ControlCapacitorBanks[0].BusBkrV = inputsData.BusBkrVCap1;
+            m_inputFrame.ControlCapacitorBanks[1].BusBkrV = inputsData.BusBkrVCap2;
+            m_inputFrame.ControlTransformers[0].VoltsV = inputsData.VoltsVTx4 / 1000;
+            m_inputFrame.ControlTransformers[1].VoltsV = inputsData.VoltsVTx5 / 1000;
+            m_inputFrame.ControlCapacitorBanks[0].LockvV = inputsData.LocKvVCap1 / 1000;
+            m_inputFrame.ControlCapacitorBanks[1].LockvV = inputsData.LocKvVCap2 / 1000;
+            m_inputFrame.ControlTransformers[0].MwV = inputsData.MwVTx4;
+            m_inputFrame.ControlTransformers[0].MvrV = inputsData.MvrVTx4;
+            m_inputFrame.ControlTransformers[1].MwV = inputsData.MwVTx5;
+            m_inputFrame.ControlTransformers[1].MvrV = inputsData.MvrVTx5;
+            m_inputFrame.SubstationInformation.G1Mw = inputsData.G1Mw;
+            m_inputFrame.SubstationInformation.G1Mvr = inputsData.G1Mvr;
+            m_inputFrame.SubstationInformation.G2Mw = inputsData.G2Mw;
+            m_inputFrame.SubstationInformation.G2Mvr = inputsData.G2Mvr;
 
             #endregion
 
@@ -192,7 +216,6 @@ namespace LVC.Adapters
 
         }
         
-
         #endregion
 
         #region [ Xml Serialization/Deserialization methods ]

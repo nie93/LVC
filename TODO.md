@@ -8,12 +8,10 @@
 Zhijie Nie, 2017-06-26
 
 ## Program Development
+* (C#) Create 4 tests of LVC analytic for future documentations
 * (C#) Need to remodify `RunPythonCmd()` under `PythonScript` class, given `OperationMode` is 
 obselete now since `SysConfigFrame` class is removed.
-* (C#) Re-configure a `PreviousFrame`
-* (C#) Construct a `EcaConnector` class
 * [**HOLD**] (C#) Use `GrafanaAdapters.cs` to create data connection to DashBoard
-* (C#) Refine `SysConfigFrame(object)` class
 * [**Maybe**] (C#) Create ***InputAdapter*** & ***OutputAdapter*** class
 * [**ALWAYS**] More practices on Git & Github
 * [**ALWAYS**] Refine the codes at your best
@@ -21,6 +19,7 @@ obselete now since `SysConfigFrame` class is removed.
 
 ## Documentation
 * Documentation for ShadowSys
+* Documentation for LVC Analytic
 
 
 ## Coding Improvements
@@ -113,26 +112,12 @@ everytime when run the program)
 device only, see connection diagram)
 * (C#) ECAApiDemo
 * (C#) Call LVCTestHarness from LVCinShadowSysTestHarness
-* (C#) Ritchie's reply: 
-
-There should an `App.config` file for the Service and ServiceConsole projects, these will need to 
-reference a unique port. Look in the `ServiceHost.Designer.cs` file for this line:
-
-
-```C#
-this.m_remotingServer.ConfigurationString = "port=[REMOTE_CONSOLE_PORT]; interface=0.0.0.0";
-```
-
-This should match the following line in the `ServiceClient.Designer.cs` in the console project:
-```C#
-this.m_remotingClient.ConnectionString = "server=localhost:[REMOTE_CONSOLE_PORT]; interface=0.0.0.0";
-```
-
-These port numbers need to be unique per service instance
-
-So `LVCService` port number should be different from `LVCinShadowSysService`
-
+* (C#) Ritchie's reply: `ServiceHost.Designer.cs` -- `this.m_remotingServer.ConfigurationString = "port=[REMOTE_CONSOLE_PORT]; interface=0.0.0.0"`
+and `ServiceClient.Designer.cs` -- `this.m_remotingClient.ConnectionString = "server=localhost:[REMOTE_CONSOLE_PORT]; interface=0.0.0.0"`
 * (C#) Feeding data of `PPA:9` to `PPA:12` using `DataSubcriber`
+* (C#) Re-configure a `PreviousFrame` -> `VoltVarController` is used instead
+* [**Cancelled**] (C#) Construct a `EcaConnector` class
+* [**Cancelled**] (C#) Refine `SysConfigFrame(object)` class
 
 <!--
 [![](files/openH2_icon.png)![openHistorian](files/openHistorian2_Logo2016.png)](https://github.com/GridProtectionAlliance/openHistorian "openHistorian")-->

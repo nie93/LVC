@@ -78,7 +78,7 @@ namespace LVC.VcSubRoutines
             for (int i = 0; i < vc.SubstationAlarmDevice.ZNTX; i++)
             {
 
-                #region [ check Transformer Local/Remote Switch ]
+                #region [ Check Transformer Local/Remote Switch ]
                 if (vc.ControlTransformers[i].LocRemV != vc.SubstationInformation.Remote)
                 {
                     vc.ControlTransformers[i].InSvc = 0;
@@ -182,7 +182,7 @@ namespace LVC.VcSubRoutines
                 }
                 else
                 {
-                    m_messageInput += string.Format("{0} {1} Transformer{2} is NOT service = {3}", vc.ControlTransformers[i].DeviceId, vc.ControlTransformers[i].LtcCtlId, i, vc.ControlTransformers[i].InSvc);
+                    m_messageInput += string.Format("{0} {1} Transformer{2} is NOT in service = {3}", vc.ControlTransformers[i].DeviceId, vc.ControlTransformers[i].LtcCtlId, i, vc.ControlTransformers[i].InSvc);
                 }
 
                 #endregion

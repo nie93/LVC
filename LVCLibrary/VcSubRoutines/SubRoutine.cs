@@ -214,9 +214,6 @@ namespace LVC.VcSubRoutines
 
             else
             {
-
-
-
                 #region [ Decide which Transformer we would prefer to use ]
 
                 //-----------------------------------------------------------------------#

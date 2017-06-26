@@ -32,7 +32,7 @@ namespace LVC
              * test3.xml    -   Verify if the controller can switch ON the capacitor bank when the voltage in Pamplin substation reach the lower limit (Clov = 113.5kV)
              * test4.xml    -   Verify if the controller can switch OFF the capacitor bank when the voltage in Crewe substation reach the higher limit (Chiv = 119.7kV)
             */
-            string configurationPathName = (@"C:\Users\niezj\Documents\dom\LVC\Data\Configurations_test1.xml");
+            string configurationPathName = (@"C:\Users\niezj\Documents\dom\ShadowSys\ShadowSysConfiguration\prev_SysConfigFrame.xml");
             vca = new VoltVarControllerAdapter();
             vca.ConfigurationPathName = configurationPathName;
             vca.Initialize();
@@ -80,9 +80,9 @@ namespace LVC
 
             // Logging control decision to *.xml files
             vca.SerializeToXml(LogFilePath);
-
             // Store Current vca.InputFrame to previous.InputFrame for the next InputFrame 
             PreviousFrame = vca.InputFrame;
+            PreviousFrame.SerializeToXml(@"C:\Users\niezj\Documents\dom\ShadowSys\ShadowSysConfiguration\ctrl_SysConfigFrame.xml");
 
             try
             {
